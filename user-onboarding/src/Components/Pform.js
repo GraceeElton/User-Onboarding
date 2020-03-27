@@ -29,23 +29,14 @@ export default function PizzaForm() {
   const [error, setError] = useState({
     flname: "",
     psize: "",
-    // cheese: "",
-    // pepper: "",
-    // pep: "",
-    // sauce: "",
+    cheese: "",
+    pepper: "",
+    pep: "",
+    sauce: "",
     special: ""
   });
 
-  const [button, setButton] = useState(true);
-
   const [post, setpost] = useState([]);
-
-  useEffect(() => {
-    formSchema.isValid(newPizza).then(valid => {
-      console.log(valid);
-      setButton(!valid);
-    });
-  }, [newPizza]);
 
   const validateChange = event => {
     yup
@@ -123,48 +114,46 @@ export default function PizzaForm() {
         </select>
       </label>
       <br />
-      <fieldset>
-        <label htmlFor="cheese">
-          <input
-            id="cheese"
-            type="checkbox"
-            name="cheese"
-            checked={newPizza.cheese}
-            onChange={inputChange}
-          />
-          Cheese
-        </label>
-        <label htmlFor="pepper">
-          <input
-            id="pepper"
-            type="checkbox"
-            name="pepper"
-            checked={newPizza.pepper}
-            onChange={inputChange}
-          />
-          Peppers
-        </label>
-        <label htmlFor="pep">
-          <input
-            id="pep"
-            type="checkbox"
-            name="pep"
-            checked={newPizza.pep}
-            onChange={inputChange}
-          />
-          pepperonis
-        </label>
-        <label htmlFor="sauce">
-          <input
-            id="sauce"
-            type="checkbox"
-            name="sauce"
-            checked={newPizza.sauce}
-            onChange={inputChange}
-          />
-          red sauce
-        </label>
-      </fieldset>
+      <label htmlFor="cheese">
+        <input
+          id="cheese"
+          type="checkbox"
+          name="cheese"
+          checked={newPizza.cheese}
+          onChange={inputChange}
+        />
+        Cheese
+      </label>
+      <label htmlFor="pepper">
+        <input
+          id="pepper"
+          type="checkbox"
+          name="pepper"
+          checked={newPizza.pepper}
+          onChange={inputChange}
+        />
+        Peppers
+      </label>
+      <label htmlFor="pep">
+        <input
+          id="pep"
+          type="checkbox"
+          name="pep"
+          checked={newPizza.pep}
+          onChange={inputChange}
+        />
+        pepperonis
+      </label>
+      <label htmlFor="sauce">
+        <input
+          id="sauce"
+          type="checkbox"
+          name="sauce"
+          checked={newPizza.sauce}
+          onChange={inputChange}
+        />
+        red sauce
+      </label>
       <br />
 
       <label htmlFor="special">
@@ -180,9 +169,7 @@ export default function PizzaForm() {
 
       <br />
       <pre>{JSON.stringify(post, null, 2)}</pre>
-      <button data-cy="submit" disabled={button}>
-        Submit
-      </button>
+      <button data-cy="submit ">Submit</button>
     </form>
   );
 }

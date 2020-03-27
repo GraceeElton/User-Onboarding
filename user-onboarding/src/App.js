@@ -12,7 +12,7 @@ function App() {
       <div className="App">
         <h1>Lambda Eats!!</h1>
         <Link to="/Pform">
-          <button>Order</button>
+          <div>Order</div>
         </Link>
         <Route exact path="/" component={Home} />
         <Route path="/Pform" component={Pform} />
